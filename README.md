@@ -26,34 +26,51 @@ A chef is an automated tool that provides a way to define infrastructure as a co
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
-### Built With
-
-* [![AWS EC2][AWS]][AWS-url]
-* [![MariaDB][MariaDB]][MariaDB-url]
-* [![NGINX][NGINX]][NGINX-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
 Make sure that you have a valide AWS account 
-
-### Prerequisites
-
-1. AWS account with permissions to create EC2 instances and security groups.
-2. Basic knowledge of Linux, AWS EC2, MariaDB, and Nginx.
-3. Two EC2 instances running Ubuntu 20.04 (or any other Linux distribution of your choice) for MariaDB servers.
-4. One EC2 instance for Nginx load balancer.
 
 
 ### Step 1: Launch EC2 Instances and install Chef
 
 Before We start to create The cookbook we need to install chef in our ec2 instance for so let’s first install chef-DK.
 
-* 2 instances for MariaDB servers
+* Launch an Amazon Linux 2023 server
+
+[[Instances Screen Shot][ec2-instances]]
+
+* Login to your ec2 instance & update your server package with:
+
+```sh
+sudo yum -y update
+```
+
+* We need to go chef official website by using the below link & download chef-workstation
+
+[https://docs.chef.io/workstation/install_workstation/#supported-platforms](https://docs.chef.io/workstation/install_workstation/#supported-platforms)
+
+* Go to your ec2 terminal and type
+
+```sh
+sudo wget https://packages.chef.io/files/stable/chef-workstation/21.10.640/el/8/chef-workstation-21.10.640-1.el8.x86_64.rpm
+
+```
+
+* Start the Check-workstation installation using the below command.
+
+```sh
+sudo yum localinstall chef-workstation-21.10.640-1.el8.x86_64.rpm
+
+```
+* After successfully installing chef in our Ec2 Instance you can check using.
+
+```sh
+chef -v
+
+```
+
+
 * 1 instance for Nginx load balancer
 
 Ensure proper security groups and inbound/outbound rules are configured to allow necessary traffic.
@@ -216,7 +233,7 @@ Congratulations! You have successfully configured MariaDB Master-Master replicat
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[ec2-instances]: images/instances.png
+[ec2-instances]: images/instance.png
 [mariadb-conf]: images/mariadbconf.png
 [mariadb-master-status]: images/masterstatus.png
 [mariadb-slaves-status]: images/slavestatus.png
