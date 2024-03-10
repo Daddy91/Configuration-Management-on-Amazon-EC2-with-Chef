@@ -3,27 +3,25 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/Daddy91/Configuring-MariaDB-replication-Master-Master-on-AWS-EC2">
+  <a href="https://github.com/Daddy91/Configuration-Management-on-Amazon-EC2-with-Chef">
     <img src="images/aws-logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Configuring MariaDB replication (Master-Master) on AWS EC2</h3>
+  <h3 align="center">Amazon EC2 configuration Management with Chef</h3>
 
   <p align="center">
-    Step by step tutorial to configure 
+    Step by step tutorial to set up Chef Configuration Management 
     <br />
-    <a href="https://github.com/Daddy91/Configuring-MariaDB-replication-Master-Master-on-AWS-EC2"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/Daddy91/Configuration-Management-on-Amazon-EC2-with-Chef"><strong>Explore the docs »</strong></a>
     <br />
     <br />
   </p>
 </div>
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## What is Chef ?
 
-This repository provides comprehensive documentation and configuration files to set up MariaDB Master-Master replication on Amazon Web Services (AWS) Elastic Compute Cloud (EC2) instances. Master-Master replication is a crucial setup for achieving high availability and fault tolerance in database systems.
-
-This guide will walk you through the process of setting up MariaDB Master-Master replication on AWS EC2 instances and configuring Nginx as a load balancer to distribute incoming traffic among the database servers.
+A chef is an automated tool that provides a way to define infrastructure as a code. Code-like infrastructure (IAC) simply means coding infrastructure (default infrastructure) rather than using manual processes.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
