@@ -49,9 +49,9 @@ Make sure that you have a valide AWS account
 4. One EC2 instance for Nginx load balancer.
 
 
-### Step 1: Launch EC2 Instances
+### Step 1: Launch EC2 Instances and install Chef
 
-Launch three EC2 instances with Ubuntu 20.04:
+Before We start to create The cookbook we need to install chef in our ec2 instance for so let’s first install chef-DK.
 
 * 2 instances for MariaDB servers
 * 1 instance for Nginx load balancer
