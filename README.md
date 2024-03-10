@@ -67,26 +67,33 @@ sudo yum localinstall chef-workstation-21.10.640-1.el8.x86_64.rpm
 
 ```sh
 chef -v
+```
+![Chef Version][chef_version]
 
+
+### Step 2: Create a cookbook
+
+* From your workstation, create /home/ec2-user/chef-repo/cookbooksdirectory to store your recipes and move to the cookbooksdirectory.
+
+![cookbooksdirectory][cookbooksdirectory]
+
+ * Create a Cookbook, here I am creating a cookbook called firstcookbook using the below command .
+
+ ```sh
+chef generate cookbook firstcookbook
+```
+![create cookbook][create_cookbook]
+
+![create cookbook][create_cookbook2]
+
+Open the default.rb on:
+
+```sh
+sudo nano firstcookbook/recipes/default.rb
 ```
 
 
-* 1 instance for Nginx load balancer
-
-Ensure proper security groups and inbound/outbound rules are configured to allow necessary traffic.
-
-[![Instances Screen Shot][ec2-instances]]
-
-### Step 2: Install MariaDB on MariaDB Instances
-
-1. SSH into each MariaDB instance using your prefered tool. I used MobaXterm to SSH into my instances.
-
-2. Install MariaDB server using the link below from AWS
-
-[https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
-
-
-### Step 3: Configure MariaDB Master-Master Replication
+### Step 3: Configure the chef's cookbook
 
 * Edit the MariaDB configuration 'my.cnf' file on both instances (Master1 and Master2) to enable replication. You'll need to configure server-id, binlog settings, and define a replication user.
 ```sh
@@ -234,10 +241,10 @@ Congratulations! You have successfully configured MariaDB Master-Master replicat
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [ec2-instances]: images/instance.png
-[mariadb-conf]: images/mariadbconf.png
-[mariadb-master-status]: images/masterstatus.png
-[mariadb-slaves-status]: images/slavestatus.png
-[mysqlbw]: images/mysqlwb.png
+[chef_version]: images/chef_version.png
+[cookbooksdirectory]: images/cd_cookbook.png
+[create_cookbook]: images/generate_cookbook.png
+[create_cookbook2]: images/generate2.png
 [database]: images/showdatabases.png
 [AWS-url]: https://aws.amazon.com/?nc2=h_lg
 [AWS]: https://img.shields.io/badge/aws-white?style=for-the-badge&logo=amazon&logoColor=yellow
