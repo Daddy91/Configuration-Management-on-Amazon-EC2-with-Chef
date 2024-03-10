@@ -177,8 +177,7 @@ If all went well this is how it should look.
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Nginx installation](https://www.nginx.com/resources/wiki/start/topics/tutorials/install/)
-* [Mariadb Installation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-lamp-amazon-linux-2.html)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -194,9 +193,3 @@ If all went well this is how it should look.
 [run_recipe]: images/run_recipe.png
 [AWS-url]: https://aws.amazon.com/?nc2=h_lg
 [AWS]: https://img.shields.io/badge/aws-white?style=for-the-badge&logo=amazon&logoColor=yellow
-[MariaDB-url]: https://mariadb.org/
-[MariaDB]: https://img.shields.io/badge/MariaDb-white?style=for-the-badge&logo=mariadb&logoColor=yellow
-[React-url]: https://reactjs.org/
-[NGINX-url]: https://www.nginx.com/
-[NGINX]: https://img.shields.io/badge/nginx-white?style=for-the-badge&logo=nginx&logoColor=green
-
