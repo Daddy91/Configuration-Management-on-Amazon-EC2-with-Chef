@@ -86,28 +86,76 @@ chef generate cookbook firstcookbook
 
 ![create cookbook][create_cookbook2]
 
-Open the default.rb on:
+
+### Step 3: Configure the chef's cookbook
+
+We created our cookbook now we have to write our recipe inside that cookbook.
+
+* Open the default.rb on:
 
 ```sh
 sudo nano firstcookbook/recipes/default.rb
 ```
+* And paste this:
 
-
-### Step 3: Configure the chef's cookbook
-
-* Edit the MariaDB configuration 'my.cnf' file on both instances (Master1 and Master2) to enable replication. You'll need to configure server-id, binlog settings, and define a replication user.
 ```sh
-sudo nano /etc/my.cnf
+file '/home/ec2-user/config.txt' do
+  content 'This is a test config template by Daddy on EC2'
+  action :create_if_missing
+end
+
+# Install cron package
+package 'cronie' do
+  action :install
+end
+
+# Ensure cron service is started and enabled
+service 'crond' do
+  action [:start, :enable]
+end
+
+# Install httpd package
+package 'httpd' do
+  action :install
+end
+
+# Install git package
+package 'git' do
+  action :install
+end
+
+# Clone Node.js app repository
+git '/path/to/app_dir' do
+  repository 'your repository url'
+  action :sync
+end
+
+# Start httpd service
+service 'httpd' do
+  action [:enable, :start]
+end
+
+# Start Node.js app
+execute 'start_node_app' do
+  command 'node /path/to/your/app.js &'
+  action :run
+end
+
+# Pull cron script from GitHub and run every minute
+cron 'run_script' do
+  minute '*'
+  command 'bash /path/to/your/script.sh'
+  action :create
+end
+
 ```
 
-[![Mariadb conf Screen Shot][mariadb-conf]]
+What we want here is that we want to maintain a config.text file or create it if it does not exist, keep a nodejs app running, install htttpd and git, pull a cron script from github.
 
-* Then, restart MariaDB to apply the changes:
-```sh
-sudo systemctl restart mariadb
-```
 
-### Step 4: Create Replication User
+### Step 4: Running the cookbook recipe
+
+Now we have almost done with our setup we just need to run the chef-client command.
 
 connect to your database and create a user on both servers that will be used for replication. Replace <user> and <password> with your desired username and password.
 ```sh
