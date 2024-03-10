@@ -38,7 +38,7 @@ Before We start to create The cookbook we need to install chef in our ec2 instan
 
 * Launch an Amazon Linux 2023 server
 
-[![Instances Screen Shot][ec2-instances]]
+![Instances Screen Shot][ec2-instances]
 
 * Login to your ec2 instance & update your server package with:
 
